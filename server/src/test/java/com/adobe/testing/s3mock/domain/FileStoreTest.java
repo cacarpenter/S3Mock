@@ -24,6 +24,7 @@ import static org.hamcrest.Matchers.endsWith;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertNotNull;
 
@@ -221,7 +222,8 @@ public class FileStoreTest {
     assertThat("File should be encrypted", returnedObject.isEncrypted());
     assertThat("Encryption Type matches", returnedObject.getKmsEncryption(), is(TEST_ENC_TYPE));
     assertThat("Encryption Key matches", returnedObject.getKmsKeyId(), is(TEST_ENC_KEY));
-    assertThat("MD5 should not match", returnedObject.getMd5(), is(md5));
+    // test looks wrong based on the reason here, I changed 'is' to 'not' for the third argument
+    assertThat("MD5 should not match", returnedObject.getMd5(), not(md5));
   }
 
   /**
@@ -251,7 +253,9 @@ public class FileStoreTest {
     assertThat("File should be encrypted", returnedObject.isEncrypted());
     assertThat("Encryption Type matches", returnedObject.getKmsEncryption(), is(TEST_ENC_TYPE));
     assertThat("Encryption Key matches", returnedObject.getKmsKeyId(), is(TEST_ENC_KEY));
-    assertThat("MD5 should not match", returnedObject.getMd5(), is(md5));
+    // should or should not because the test is not checking what the assertion reason is
+    // assertThat("MD5 should not match", returnedObject.getMd5(), is(md5));
+    assertThat("MD5 should not match", returnedObject.getMd5(), not(md5));
   }
 
   /**

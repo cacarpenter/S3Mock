@@ -181,6 +181,7 @@
                     </execution>
                 </executions>
             </plugin>
+	    <!--
             <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
@@ -208,6 +209,8 @@
                     </execution>
                 </executions>
             </plugin>
+	    -->
+	    <!--
             <plugin>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <configuration>
@@ -225,9 +228,11 @@
                     </execution>
                 </executions>
             </plugin>
+	    -->
         </plugins>
     </build>
 
+<!--
     <profiles>
         <profile>
             <id>push-docker-image</id>
@@ -253,4 +258,5 @@
             </build>
         </profile>
     </profiles>
+    -->
 </project>
